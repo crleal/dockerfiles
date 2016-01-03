@@ -14,4 +14,4 @@ docker run -d  \
 
 
 
-docker run -d --net="host" -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix mysql-workbench 
+docker run -d --net="host" --name=mysql-workbench -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix mysql-workbench 
