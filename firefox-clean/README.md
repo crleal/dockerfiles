@@ -9,7 +9,8 @@ Resolve o problema de limitar a memoria no docker
 Rodando
 
 
-docker run  -v $HOME/Downloads:/home/developer/Downloads:rw \
+docker run   -d \
+            -v $HOME/Downloads:/home/developer/Downloads:rw \
             -v /tmp/.X11-unix:/tmp/.X11-unix \
             -v /dev/snd:/dev/snd \
             -v /dev/shm:/dev/shm \
@@ -22,8 +23,7 @@ docker run  -v $HOME/Downloads:/home/developer/Downloads:rw \
             -e DISPLAY=unix$DISPLAY \
             --net host \
 	        --cpuset-cpus 0 \
-	        --memory 512mb \
-            --rm \
+	        --memory 1024mb \ 
             --name firefox \
             firefox-clean
 
