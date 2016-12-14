@@ -29,4 +29,14 @@ docker run   -d \
 
 
 
-
+docker run   -d \
+            -v $HOME/Downloads:/home/developer/Downloads:rw \
+            -v /tmp/.X11-unix:/tmp/.X11-unix \
+            -v /dev/snd:/dev/snd \
+            -v /dev/shm:/dev/shm \
+            -e DISPLAY=unix$DISPLAY \
+            --net host \
+            --cpuset-cpus 0 \
+            --memory 1024mb \
+            --name firefox-docker \
+            firefox-clean
