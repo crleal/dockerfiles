@@ -16,5 +16,10 @@ Open your browser to http://<dockerd host ip>:9000
 https://github.com/portainer/portainer
 
 
+Colocar a data da maquina igual a do host:
+
+-v /etc/localtime:/etc/localtime:ro
+
+
 
 
