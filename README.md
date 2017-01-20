@@ -207,7 +207,37 @@ docker run \
 	jess/chrome
 
 ********************************************************************************************
+Teste com KDE Xeon
 
+https://community.kde.org/Neon/Docker
+
+Default user is neon and password is neon. The user has password-free sudo access.
+
+To give it a try first set up Docker as you would for your distro. For Ubuntu distros that means running:
+
+sudo apt install docker.io xserver-xephyr
+sudo usermod -aG docker $(whoami)
+and log out and in again
+
+By default it will run a full session with startkde on DISPLAY=:1, you can use Xephyr as an X server window.
+
+Xephyr -screen 1024x768 :1 &
+docker run -v /tmp/.X11-unix:/tmp/.X11-unix kdeneon/plasma:dev-unstable
+Or you can tell it to run on DISPLAY=:0 and run a single app
+
+xhost +
+docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=:0 kdeneon/plasma:dev-unstable dolphin
+This drops access restrictions to your X server (should be safe because network access is still off but reverse with xhost - once you’re done if you want to be sure), downloads kdeneon and runs okular.
+
+For an interactive session where you have access to your coding directory ~/src run
+
+xhost +
+docker run -ti -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/src:/home/neon/src -e DISPLAY=:0 kdeneon/plasma:dev-unstable bash
+This will give you a Bash prompt, you can code as you would on your host machine and run X apps. Type exit to quit, the ~/src directory will be preserved on your host machine.
+
+You can also commit your Docker images if you make changes you would like to come back to such as installing applications. For more information on using Docker see Docker Engine user guide.
+
+**********************************************************************************************
 
 
 
