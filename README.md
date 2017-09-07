@@ -238,6 +238,14 @@ This will give you a Bash prompt, you can code as you would on your host machine
 You can also commit your Docker images if you make changes you would like to come back to such as installing applications. For more information on using Docker see Docker Engine user guide.
 
 **********************************************************************************************
+Servidor smtp
+
+https://hub.docker.com/r/exoplatform/smtp/
+
+sudo docker run -d --name smtp exoplatform/smtp:latest
+
+
+
 
 
 
