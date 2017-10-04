@@ -244,6 +244,12 @@ https://hub.docker.com/r/exoplatform/smtp/
 
 sudo docker run -d --name smtp exoplatform/smtp:latest
 
+**********************************************************************************************
+
+http://jmkhael.io/deploying-play-with-docker-com-on-my-machine/
+
+
+
 
 
 
