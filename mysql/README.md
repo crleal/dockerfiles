@@ -22,3 +22,8 @@ service mysql restart
 
 
 
+#com volume
+docker run -v /opt/docker/mysqlmain/data:/var/lib/mysql -p 3306:3306 --name mysqlmain -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
+
+
+
