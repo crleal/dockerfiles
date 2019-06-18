@@ -46,10 +46,15 @@ docker run --name postgresgenis -p 5432:5432 -v /opt/docker/postgres/data:/var/l
 #com volume
 
 docker run -v /opt/docker/mysqlmain/data:/var/lib/mysql -p 3306:3306 --name mysqlmain -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
+
 docker run -v /opt/docker/mysqlmain0226/data:/var/lib/mysql -p 3306:3306 --name mysqlmain0226 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
+
 docker run -v ~/dockerfiles/mysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysqlstaging0426/data:/var/lib/mysql -p 3306:3306 --name mysqlstaging0426 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
+
 docker run -v /opt/docker/confmysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysqlstaging0514/data:/var/lib/mysql -p 3306:3306 --name mysqlstaging0514 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
+
 docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name mysqlOficina -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
+
 docker run -v /opt/docker/mysqlkuke/data:/var/lib/mysql -p 3306:3306 --name mysqlkuke -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
 
