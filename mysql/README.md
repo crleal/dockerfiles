@@ -50,6 +50,7 @@ mysql --user=root --password
 Enter the password for root (Default is 'root') Finally Run:
 
 ALTER USER 'username' IDENTIFIED WITH mysql_native_password BY 'password';
+-----------------------------------------------------------------------------------------
 
 
 #com volume
