@@ -42,6 +42,15 @@ docker run --name postgresgenis -p 5432:5432 -v /opt/docker/postgres/data:/var/l
 
 
 
+# Ajuste erro de password
+Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 
+
+docker exec -it CONTAINER_ID bash
+mysql --user=root --password
+Enter the password for root (Default is 'root') Finally Run:
+
+ALTER USER 'username' IDENTIFIED WITH mysql_native_password BY 'password';
+
 
 #com volume
 
