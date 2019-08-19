@@ -59,8 +59,6 @@ docker run -v /opt/docker/mysqlmain/data:/var/lib/mysql -p 3306:3306 --name mysq
 
 docker run -v /opt/docker/mysqlmain0226/data:/var/lib/mysql -p 3306:3306 --name mysqlmain0226 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
 
-docker run -v ~/dockerfiles/mysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysqlstaging0426/data:/var/lib/mysql -p 3306:3306 --name mysqlstaging0426 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
-
 docker run -v /opt/docker/confmysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysqlstaging0514/data:/var/lib/mysql -p 3306:3306 --name mysqlstaging0514 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
 
 docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name mysqlOficina -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
@@ -71,3 +69,6 @@ docker run -v /opt/docker/mysqlkuke/data:/var/lib/mysql -p 3306:3306 --name mysq
 Exemplo de phpmyadmin
 
 docker run --rm --link mysqlstaging0426:mysql -p 1234:80 nazarpc/phpmyadmin
+
+
+docker exec -i ac11cc11af99 mysql -uroot -p"root6Beer" awplus < Dump20190818Local.sql
