@@ -52,6 +52,8 @@ Enter the password for root (Default is 'root') Finally Run:
 ALTER USER 'username' IDENTIFIED WITH mysql_native_password BY 'password';
 -----------------------------------------------------------------------------------------
 
+import
+docker exec -i container_name mysql -uroot dbname < data.sql;
 
 #com volume
 
@@ -63,7 +65,7 @@ docker run -v /opt/docker/confmysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysql
 
 docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name mysqlOficina -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
-docker run -v /opt/docker/mysqlkuke/data:/var/lib/mysql -p 3306:3306 --name mysqlkuke -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
+docker run -v /opt/docker/mysqlkuke/data:/var/lib/mysql -p 3306:3306 --name mysqlkuke -e MYSQ3L_ROOT_PASSWORD=root6Beer -d mysql
 
 
 Exemplo de phpmyadmin
