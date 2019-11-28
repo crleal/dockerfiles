@@ -9,7 +9,7 @@ Resolve o problema de limitar a memoria no docker
 Rodando
 
 
-docker run -d -p 6379:6379 --name redis redis-server
+docker run -d --network="host" -p 6379:6379 --name redis redis-server
 
 
 

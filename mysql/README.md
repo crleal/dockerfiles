@@ -45,7 +45,7 @@ docker run --name postgresgenis -p 5432:5432 -v /opt/docker/postgres/data:/var/l
 # Ajuste erro de password
 Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 
 
-docker exec -it CONTAINER_ID bash
+docker exec -it CONTAINER_ID bash mysql_upgrade -u root -p
 mysql --user=root --password
 Enter the password for root (Default is 'root') Finally Run:
 
@@ -54,6 +54,7 @@ ALTER USER 'username' IDENTIFIED WITH mysql_native_password BY 'password';
 
 import
 docker exec -i container_name mysql -uroot dbname < data.sql;
+docker exec -i mysqlpearson mysql -uroot -proot6Beer awplus < Dump20190818Local.sql
 
 #com volume
 
@@ -65,7 +66,14 @@ docker run -v /opt/docker/confmysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysql
 
 docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name mysqlOficina -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
-docker run -v /opt/docker/mysqlkuke/data:/var/lib/mysql -p 3306:3306 --name mysqlkuke -e MYSQ3L_ROOT_PASSWORD=root6Beer -d mysql
+docker run -v /home/crleal/docker/mysqlxxxx/data:/var/lib/mysql -p 3306:3306 --name mysqlxxxxx -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
+
+docker run -v /home/crleal/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name mysqlpearson -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7
+
+
+
+Cria container ignorando case
+docker run -v /home/xxxxxx/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name mysqlpearson -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7 mysqld --lower_case_table_names=1
 
 
 Exemplo de phpmyadmin
