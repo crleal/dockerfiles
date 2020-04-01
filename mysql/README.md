@@ -3,7 +3,7 @@ Este resolvi aproveitar o oficial
 Baixar a imagem
 sudo docker pull mysql
 
-sudo docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
+sudo docker run -p 3306:3306 --name <containner> -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
 ***********************************************************************
 gerando uma variavel no .cnf, como exemplo:
