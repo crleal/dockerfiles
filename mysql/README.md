@@ -2,22 +2,14 @@ Este resolvi aproveitar o oficial
 
 Baixar a imagem
 sudo docker pull mysql
-
-*** -p 3306:3306  = localhost:3306
-
-
 sudo docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
-
-
+***********************************************************************
 gerando uma variavel no .cnf, como exemplo:
 
 sudo docker exec -it mysql bash 
-
 echo "[mysqld]" >  /etc/mysql/mysql.conf.d/only_full_group_by.cnf
-
 echo "sql_mode = ''" >>  /etc/mysql/mysql.conf.d/only_full_group_by.cnf
-
 service mysql restart
 
 
@@ -37,11 +29,6 @@ innodb_buffer_pool_size=805306368
 innodb_log_file_size=4096M
 *************************
 
-
-docker run --name postgresgenis -p 5432:5432 -v /opt/docker/postgres/data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -d postgres
-
-
-
 # Ajuste erro de password
 Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 
 
@@ -58,27 +45,22 @@ docker exec -i mysqlpearson mysql -uroot -proot6Beer awplus < Dump20190818Local.
 
 #com volume
 
-docker run -v /opt/docker/mysqlmain/data:/var/lib/mysql -p 3306:3306 --name mysqlmain -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
-
-docker run -v /opt/docker/mysqlmain0226/data:/var/lib/mysql -p 3306:3306 --name mysqlmain0226 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
-
-docker run -v /opt/docker/confmysql:/etc/mysql/mysql.conf.d -v /opt/docker/mysqlstaging0514/data:/var/lib/mysql -p 3306:3306 --name mysqlstaging0514 -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.6
-
 docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name mysqlOficina -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
-
-docker run -v /home/crleal/docker/mysqlxxxx/data:/var/lib/mysql -p 3306:3306 --name mysqlxxxxx -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
 docker run -v /home/crleal/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name mysqlpearson -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7
 
 
-
 Cria container ignorando case
 docker run -v /home/xxxxxx/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name mysqlpearson -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7 mysqld --lower_case_table_names=1
-
+*****************************************
 
 Exemplo de phpmyadmin
-
-docker run --rm --link mysqlstaging0426:mysql -p 1234:80 nazarpc/phpmyadmin
+docker run --rm --link mysqlxxxxx:mysql -p 1234:80 nazarpc/phpmyadmin
 
 
 docker exec -i ac11cc11af99 mysql -uroot -p"root6Beer" awplus < Dump20190818Local.sql
+
+*********************************************************************************************
+
+
+
