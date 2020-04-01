@@ -8,7 +8,7 @@ sudo docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root6Beer -d my
 ***********************************************************************
 gerando uma variavel no .cnf, como exemplo:
 
-sudo docker exec -it mysql bash 
+sudo docker exec -it <containner> bash 
 
 echo "[mysqld]" >  /etc/mysql/mysql.conf.d/only_full_group_by.cnf
 
@@ -17,9 +17,12 @@ echo "sql_mode = ''" >>  /etc/mysql/mysql.conf.d/only_full_group_by.cnf
 service mysql restart
 
 
+***********************************************************************************
+compiando de fora do containner
+
 /etc/mysql/conf.d
 
-docker exec -i mysqlstaging0514 /bin/bash -c 'cat >/etc/mysql/conf.d/my,cnf' < my.cnf
+docker exec -i <containner> /bin/bash -c 'cat >/etc/mysql/conf.d/my,cnf' < my.cnf
 
 *************************
 [mysqld]
@@ -56,20 +59,20 @@ ALTER USER 'username' IDENTIFIED WITH mysql_native_password BY 'password';
 
 import
 
-docker exec -i container_name mysql -uroot dbname < data.sql;
+docker exec -i <containner> mysql -uroot dbname < data.sql;
 
-docker exec -i mysqlpearson mysql -uroot -proot6Beer awplus < Dump20190818Local.sql
+docker exec -i <containner> mysql -uroot -proot6Beer awplus < Dump20190818Local.sql
 
 
 #com volume
 
-docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name mysqlOficina -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
+docker run -v /opt/docker/mysqlOficina/data:/var/lib/mysql -p 3306:3306 --name <containner> -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql
 
-docker run -v /home/crleal/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name mysqlpearson -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7
+docker run -v /home/crleal/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name <containner> -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7
 
 
 Cria container ignorando case
-docker run -v /home/xxxxxx/docker/mysqlpearson/data:/var/lib/mysql -p 3306:3306 --name mysqlpearson -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7 mysqld --lower_case_table_names=1
+docker run -v /home/xxxxxx/docker/mysql/data:/var/lib/mysql -p 3306:3306 --name <containner> -e MYSQL_ROOT_PASSWORD=root6Beer -d mysql:5.7 mysqld --lower_case_table_names=1
 
 *****************************************
 
